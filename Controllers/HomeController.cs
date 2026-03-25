@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
+﻿using AspNetCoreGeneratedDocument;
+using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 using TPLOCAL1.Models;
 
 //Subject is find at the root of the project and the logo in the wwwroot/ressources folders of the solution
@@ -23,7 +25,9 @@ namespace TPLOCAL1.Controllers
                 {
                     case "OpinionList":
                         //TODO : code reading of the xml files provide
-                        return View(id);
+                        OpinionList opinions = new OpinionList();
+                        opinions.GetAvis("XlmFile/DataAvis.xml");
+                        return View(id,opinions);
                     case "Form":
                         //TODO : call the Form view with data model empty
                         return View(id);
@@ -37,12 +41,19 @@ namespace TPLOCAL1.Controllers
 
         //methode to send datas from form to validation page
         [HttpPost]
-        public ActionResult ValidationFormulaire(/*model*/)
+        public ActionResult ValidationFormulaire(Form form)
         {
             //TODO : test if model's fields are set
             //if not, display an error message and stay on the form page
             //else, call ValidationForm with the datas set by the user
-            return null;
+            if (!ModelState.IsValid)
+            {
+                return View("Form");
+            }
+            else
+            {
+                return View(form);
+            }
 
         }
     }

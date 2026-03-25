@@ -11,8 +11,14 @@ td {
 th {
     text-align : left;
     border: 1px solid black;
+    font-weight : normal;
 }
 
 p {
     text-align : center;
+}
+
+.field-validation-error {
+    color : red;
+    background-color : yellow;
 }

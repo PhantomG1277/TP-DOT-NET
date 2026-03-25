@@ -20,106 +20,126 @@
     <nav>
         <ul>
             <li><a href="/Home/Index">Accueil</a></li>
-            <li><a href="/Home/Index/AvisList">Liste avis</a></li>
+            <li><a href="/Home/Index/OpinionList">Liste des avis</a></li>
         </ul>
     </nav>
     <section>
 
-        <form>
+        <form asp-action="ValidationFormulaire">
             <table>
                 <caption>Informations personnelles</caption>
                 <tr>
                     <th>Nom</th>
                     <th>
-                        <input type="text" asp-for="Nom" />
+                        <input type="text" asp-for="Nom" class="form-control" />
+                        <span asp-validation-for="Nom" class="text-danger"></span>
+
                     </th>
                 </tr>
                 <tr>
                     <th>Prénom</th>
                     <th>
-                        <input type="text" asp-for="Prenom" />
+                        <input type="text" asp-for="Prenom" class="form-control"/>
+                        <span asp-validation-for="Prenom" class="text-danger"></span>
                     </th>
                 </tr>
                 <tr>
                     <th>Genre</th>
                     <th>
-                        <select id ="genre" asp-for="Genre">
-                            <option value="">Selectionner un sexe</option>
+                        <select id ="genre" asp-for="Genre" class="form-control">
+                            <option value="">Sélectionner un sexe</option>
                             <option value="Homme">Homme</option>
                             <option value="Femme">Femme</option>
                             <option value="Autre">Autre</option>
                         </select>
+                        <span asp-validation-for="Genre" class="text-danger"></span>
                     </th>
                 </tr>
                 <tr>
                     <th>Adresse</th>
                     <th>
-                        <input type="text" asp-for="Adresse" />
+                        <input type="text" asp-for="Adresse" class="form-control"/>
+                        <span asp-validation-for="Adresse" class="text-danger"></span>
                     </th>
                 </tr>
                 <tr>
                     <th>Code Postal</th>
                     <th>
-                        <input type="number" asp-for="CodePostal"/>
-                        <span asp-validation-for="CodePostal"></span>
+                        <input type="text" inputmode="numeric" asp-for="CodePostal" class="form-control"/>
+                        <span asp-validation-for="CodePostal" class="text-danger"></span>
                     </th>
                 </tr>
                 <tr>
                     <th>Ville</th>
                     <th>
-                        <input type="text" asp-for="Ville" />
+                        <input type="text" asp-for="Ville" class="form-control"/>
+                        <span asp-validation-for="Ville" class="text-danger"></span>
                     </th>
                 </tr>
                 <tr>
                     <th>Adresse courriel</th>
                     <th>
-                        <input type="email" asp-for="AdresseCourriel" />
+                        <input type="email" asp-for="AdresseCourriel" class="form-control" />
+                        <span asp-validation-for="AdresseCourriel" class="text-danger"></span>
                     </th>
                 </tr>
             </table>
-        </form>
+        
 
 
-        <form>
+        
             <table>
                 <caption>Informations formation suivie</caption>
                 <tr>
                     <th>Date début formation</th>
                     <th>
-                        <input type="date" asp-for="DateDebut" />
+                        <input type="date" asp-for="DateDebut" class="form-control" />
+                        <span asp-validation-for="DateDebut" class="text-danger"></span>
                     </th>
                 </tr>
                 <tr>
                     <th>Formation suivie</th>
                     <th>
-                        <select id="formation" asp-for="Formation">
-                            <option value="">Sélectionnez un cours</option>
+                        <select id="formation" asp-for="Formation" class="form-control">
+                            <option value="">Sélectionner une formation</option>
                             <option value="Formation Cobol">Formation Cobol</option>
                             <option value="Formation par objet">Formation par objet</option>
                             <option value="Formation à double compétence">Formation à double compétence</option>
                         </select>
+                        <span asp-validation-for="Formation" class="text-danger"></span>
                     </th>
                 </tr>
             </table>
-        </form>
+        
 
-        <form>
+        
             <table>
                 <caption>Avis sur la formation</caption>
                 <tr>
                     <th>Formation Cobol</th>
                     <th>
-                        <input type="text" asp-for="AvisMainframe"/>
+                        <input type="text" asp-for="AvisMainframe" class="form-control"/>
+                        <span asp-validation-for="AvisMainframe" class="text-danger"></span>
                     </th>
                 </tr>
                 <tr>
                     <th>Formation C#</th>
                     <th>
-                        <input type="text" asp-for="AvisCs"/>
+                        <input type="text" asp-for="AvisCs" class="form-control"/>
+                        <span asp-validation-for="AvisCs" ></span>
                     </th>
                 </tr>
             </table>
+            <input type="submit" value="Submit" class="btn btn-primary" />
         </form>
     </section>
 
+
 </body>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
