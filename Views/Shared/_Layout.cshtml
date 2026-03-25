@@ -1,0 +1,25 @@
+﻿<html>
+    <head>
+        <link rel="stylesheet" href="~/resources/Index.css" />
+        <link rel="stylesheet" href="~/resources/Form.css" />
+        <title>@ViewData["Title"]</title>
+    </head>
+    <body>
+        <header>
+            <img src="~/resources/GroupeHN.png" class="image" alt="GroupeHN" />
+            <h1>@ViewData["Header"]</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href=@ViewData["Link1"]>@ViewData["Menu1"]</a></li>
+                <li><a href=@ViewData["Link2"]>@ViewData["Menu2"]</a></li>
+            </ul>
+        </nav>
+        <div>
+            <main>
+                @RenderBody()
+            </main>
+        </div>
+    @await RenderSectionAsync("Scripts", required: false)
+    </body>
+</html>

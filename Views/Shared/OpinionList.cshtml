@@ -1,26 +1,6 @@
-﻿@model IEnumerable<TPLOCAL1.Models.OpinionList>
-
-<head>
-    <link rel="stylesheet" href="~/resources/Index.css" />
-    <link rel="stylesheet" href="~/resources/Form.css" />
-    <title>Liste des avis</title>
-</head>
-
-
-
-
+﻿@model IEnumerable<TPLOCAL1.Models.Opinion>
 
 <body>
-    <header>
-        <img src="~/resources/GroupeHN.png" class="image" alt="GroupeHN" />
-        <h1>Liste des avis</h1>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="/Home/Index">Accueil</a></li>
-            <li><a href="/Home/Index/Form">Formulaire</a></li>
-        </ul>
-    </nav>
 
     <section>
         <table>
@@ -34,7 +14,7 @@
             </thead>
             <tbody>
                
-                @foreach (var item in Model  )
+                @foreach (var item in Model)
                 {
                     <tr>
                         <td>
@@ -46,11 +26,11 @@
                         <td>
                             @if(item.OpinionGiven == "O")
                             {
-                                <p style="background-color : forestgreen">Oui</p>
+                                <p style="background-color : forestgreen; text-align : left">Oui</p>
                             }
                             else
                             {
-                                <p style="background-color : red">Non</p>
+                                <p style="background-color : red; text-align : left">Non</p>
                             }
                         </td>
                     </tr>

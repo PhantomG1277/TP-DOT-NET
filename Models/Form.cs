@@ -16,7 +16,7 @@ namespace TPLOCAL1.Models
         public string? Genre { get; set;}
 
         [Required(ErrorMessage = "Ce champ est obligatoire")]
-        [StringLength(100, MinimumLength = 10,ErrorMessage ="L'adresse doit être comprise entre 10 et 100 caractères")]
+        [StringLength(100, MinimumLength = 5,ErrorMessage ="L'adresse doit être comprise entre 10 et 100 caractères")]
         public string? Adresse {  get; set;}
 
         [Required(ErrorMessage = "Ce champ est obligatoire")]
@@ -27,7 +27,7 @@ namespace TPLOCAL1.Models
         public string? Ville { get; set; }
 
         [Required(ErrorMessage = "Ce champ est obligatoire")]
-        [EmailAddress(ErrorMessage ="Ce n'est pas un email")]
+        [RegularExpression(@"^([\w]+)@([\w]+)\.([\w]+)", ErrorMessage = "Ce n'est pas un email")]
         public string? AdresseCourriel { get; set; }
 
         [Required(ErrorMessage = "Ce champ est obligatoire")]

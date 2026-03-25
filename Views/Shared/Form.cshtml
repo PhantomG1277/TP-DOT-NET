@@ -2,27 +2,10 @@
     <h1>Welcome to the HN .Net MVC pratical work</h1>
 </header> -->
 @model TPLOCAL1.Models.Form
-<head>
-    <link rel="stylesheet" href="~/resources/Index.css" />
-    <link rel="stylesheet" href="~/resources/Form.css" />
-    <title>Formulaire</title>
-</head>
-
-
-
 
 
 <body>
-    <header>
-        <img src="~/resources/GroupeHN.png" class="image" alt="GroupeHN" />
-        <h1>Formulaire TP HN avis</h1>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="/Home/Index">Accueil</a></li>
-            <li><a href="/Home/Index/OpinionList">Liste des avis</a></li>
-        </ul>
-    </nav>
+
     <section>
 
         <form asp-action="ValidationFormulaire">
@@ -79,7 +62,7 @@
                 <tr>
                     <th>Adresse courriel</th>
                     <th>
-                        <input type="email" asp-for="AdresseCourriel" class="form-control" />
+                        <input type="email" asp-for="AdresseCourriel" class="form-control"/>
                         <span asp-validation-for="AdresseCourriel" class="text-danger"></span>
                     </th>
                 </tr>
