@@ -54,8 +54,13 @@ namespace TPLOCAL1.Controllers
             //else, call ValidationForm with the datas set by the user
             if (!ModelState.IsValid)
             {
-                vueData("Form");
-                return View("Form");
+                // The following code is valid :
+                //    vueData("Form");
+                //    return View("Form");
+                // vueData is necessary as object ViewData is emptied after view.
+                // If page is reloaded more than once, Title, Header and menu are lost in layout.
+                 
+                return Index("Form");
             }
             else
             {
@@ -103,6 +108,7 @@ namespace TPLOCAL1.Controllers
                     ViewData["Link2"] = "/Home/Index/Form";
                     break;
                 default:
+
                     break;
             }
         }

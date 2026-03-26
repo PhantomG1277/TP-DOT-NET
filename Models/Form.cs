@@ -20,7 +20,7 @@ namespace TPLOCAL1.Models
         public string? Adresse {  get; set;}
 
         [Required(ErrorMessage = "Ce champ est obligatoire")]
-        [RegularExpression(@"^\d{5}$", ErrorMessage = "Il faut 5 numéros"),  ]
+        [RegularExpression(@"^\d{5}$", ErrorMessage = "Code Postal n'est pas valide"),  ]
         public string? CodePostal { get; set; }
         
         [Required(ErrorMessage = "Ce champ est obligatoire")]
